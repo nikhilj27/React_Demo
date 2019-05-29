@@ -1,0 +1,19 @@
+import React from 'react';
+
+function Products(props) {
+  return (
+    <div className="card">
+      <h2>{props.product.name}</h2>
+      <p>
+        {props.product.price.toLocaleString('en-US', {
+          style: 'currency',
+          currency: 'USD'
+        })}{' '}
+        - {props.product.description}
+      </p>
+      <br />
+    </div>
+  );
+}
+
+export default Products;
