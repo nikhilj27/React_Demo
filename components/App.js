@@ -6,6 +6,10 @@ import ContactList from './ContactList';
 import JokeList from './JokeList';
 import ProductList from './ProductList';
 import ClassBased from './ClassBased'
+import State from './State'
+import StatePractice from './StatePractice';
+import StatePractice2 from './StatePractice2';
+import SetState from './setState';
 
 function App() {
   return (
@@ -20,6 +24,14 @@ function App() {
       <ProductList />
 
       <ClassBased />
+
+      <State />
+
+      <StatePractice />
+
+      <StatePractice2 />
+
+      <SetState />
     </div>
   );
 }
