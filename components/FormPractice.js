@@ -10,21 +10,24 @@ class FormPractice extends React.Component {
       age: '',
       gender: '',
       destination: '',
-      dietaryRestrictions: {
-        isVegan: false,
-        isKosher: false,
-        isLactoseFree: false
-      }
+
+      isVegan: false,
+      isKosher: false,
+      isLactoseFree: false
     };
 
     this.handleChange = this.handleChange.bind(this);
   }
 
   handleChange(event) {
-    const { name, value, checked } = event.target;
+    const { name, value, type, checked } = event.target;
     type === 'checkbox'
-      ? this.setState({ dietaryRestrictions: { [name]: checked } })
-      : this.setState({ [name]: value });
+      ? this.setState({
+          [name]: checked
+        })
+      : this.setState({
+          [name]: value
+        });
   }
 
   render() {
@@ -92,7 +95,7 @@ class FormPractice extends React.Component {
               type='checkbox'
               name='isVegan'
               onChange={this.handleChange}
-              checked={this.state.dietaryRestrictions.isVegan}
+              checked={this.state.isVegan}
             />
             Vegan?
           </label>
@@ -103,7 +106,7 @@ class FormPractice extends React.Component {
               type='checkbox'
               name='isKosher'
               onChange={this.handleChange}
-              checked={this.state.dietaryRestrictions.isKosher}
+              checked={this.state.isKosher}
             />
             Kosher?
           </label>
@@ -114,7 +117,7 @@ class FormPractice extends React.Component {
               type='checkbox'
               name='isLactoseFree'
               onChange={this.handleChange}
-              checked={this.state.dietaryRestrictions.isLactoseFree}
+              checked={this.state.isLactoseFree}
             />
             Lactose Free?
           </label>
@@ -132,7 +135,11 @@ class FormPractice extends React.Component {
         <p>Your destination: {this.state.destination}</p>
         <p>
           Your dietary restrictions:
-          {/* Dietary restrictions here, comma separated */}
+          <br /> Vegan : {this.state.isVegan ? 'Yes' : 'No'}
+          <br />
+          Kosher: {this.state.isKosher ? 'Yes' : 'No'}
+          <br />
+          Lactose Free: {this.state.isLactoseFree ? 'Yes' : 'No'}
         </p>
       </main>
     );
